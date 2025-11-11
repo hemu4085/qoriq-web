@@ -187,11 +187,10 @@ export default function SeeInAction() {
       },
     });
   }
-
- function doFixes() {
+function doFixes() {
   const cleaned = rawRows.map(applyFixes);
 
-  // De-duplicate by normalized email + company
+  // De-dup by email+company AFTER cleanup
   const seen = new Map();
   let removed = 0;
   const deduped = [];
@@ -207,24 +206,19 @@ export default function SeeInAction() {
     } else {
       removed++;
       const canonical = deduped[seen.get(key)];
-      canonical.__fixes = { ...(canonical.__fixes || {}), duplicate_merged: true };
+      canonical.__fixes = { ...(canonical.__fixes || {}), duplicate_merged: (canonical.__fixes?.duplicate_merged || 0) + 1 };
     }
   });
 
   setFixedRows(deduped);
   setDedupRemoved(removed);
 
-  // ✅ CRUCIAL LINE — Save clean data for Ask Your Data page
-  localStorage.setItem("qoriq_cleaned_data", JSON.stringify(deduped));
-
-  // ✅ Create index for Ask Your Data UI on THIS page
+  // ⭐️ THE IMPORTANT FIX ⭐️
+  localStorage.setItem("qoriq_clean_data", JSON.stringify(deduped));
   setLocalIndex(createLocalIndex(deduped));
 
   setShowFixed(true);
 }
-
-
-
 
 
   function exportCSV() {
@@ -246,22 +240,15 @@ export default function SeeInAction() {
       <main className="mx-auto max-w-7xl px-4 py-10 space-y-10">
 
         {/* Controls */}
-        <div className="flex gap-3">
+        {/* Controls */}
+        <div className="flex gap-3 items-center flex-wrap">
           <button
-          onClick={() => fileRef.current?.click()}
-          className="rounded-xl border border-white/20 px-3 py-2"
-        >
-          Upload CSV
-        </button>
-
-        <input
-          type="file"
-          ref={fileRef}
-          onChange={handleFile}
-          accept=".csv"
-          className="hidden"
-        />
-        {/* ← THIS IS THE KEY */}
+            onClick={() => fileRef.current?.click()}
+            className="rounded-xl border border-white/20 px-3 py-2"
+          >
+            Upload CSV
+          </button>
+          <input type="file" className="hidden" ref={fileRef} onChange={handleFile} accept=".csv" />
 
           <button
             disabled={!rawRows.length}
@@ -271,8 +258,8 @@ export default function SeeInAction() {
             Apply Fixes
           </button>
 
-          {/* ✅ NEW BUTTON — only visible after fixes */}
-          {showFixed && (
+          {/* ✅ NEW: Ask Your Data Button */}
+          {fixedRows.length > 0 && (
             <button
               onClick={() => (window.location.href = "/ask-your-data")}
               className="rounded-xl border border-[#38BDF8] text-[#38BDF8] px-4 py-2 font-semibold hover:bg-[#38BDF8]/10"
@@ -281,9 +268,9 @@ export default function SeeInAction() {
             </button>
           )}
 
-          {showFixed && (
+          {fixedRows.length > 0 && (
             <button
-              onClick={() => setShowFixed(s => !s)}
+              onClick={() => setShowFixed((s) => !s)}
               className="rounded-xl border border-white/20 px-4 py-2"
             >
               {showFixed ? "Show Before" : "Show After"}
@@ -397,16 +384,12 @@ export default function SeeInAction() {
                 Sync to AWS Bedrock KB
               </button>
 
-              {/* ✅ Show Ask Your Data only after fixes applied */}
-              {showFixed && (
-                <button
-                  onClick={() => (window.location.href = "/product/ask-your-data")}
-                  className="rounded-xl border border-[#38BDF8] text-[#38BDF8] px-4 py-2 font-semibold hover:bg-[#38BDF8]/10"
-                >
-                  Ask Your Data
-                </button>
-              )}
-
+              <button
+                onClick={() => window.location.href = "/ask"}
+                className="bg-white text-[#07172B] px-4 py-2 rounded-xl font-semibold hover:bg-gray-100"
+              >
+                Ask Your Data
+              </button>
 
 
             </div>

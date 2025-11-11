@@ -118,7 +118,7 @@ export default function App() {
             
             {/* ✅ NEW — See In Action */}
             <button
-              onClick={() => (window.location.href = "/product/see-in-action")}
+             onClick={() => (window.location.href = "/see-in-action")}
               className="rounded-2xl border border-white/15 px-5 py-3 text-sm font-semibold text-white/90 hover:bg-white/10"
             >
               See In Action
@@ -126,7 +126,7 @@ export default function App() {
 
             {/* ✅ NEW — Ask Your Data */}
             <button
-              onClick={() => (window.location.href = "/product/ask-your-data")}
+              onClick={() => (window.location.href = "/ask-your-data")}
               className="rounded-2xl border border-white/15 px-5 py-3 text-sm font-semibold text-white/90 hover:bg-white/10"
             >
               Ask Your Data
