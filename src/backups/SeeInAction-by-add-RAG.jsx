@@ -6,42 +6,44 @@ import InsightsPanel from "../components/InsightsPanel.jsx";
 import ImprovementsBanner from "../components/ImprovementsBanner.jsx";
 import applyFixes, { detectIssues } from "../lib/applyFixes.js";
 import { createLocalIndex, askQuestion } from "../lib/localAsk.js";
-
-// --- Helpers ---
+// --- Metrics (percent) for AI Readiness ---
 const isEmpty = (v) => v == null || String(v).trim() === "";
 const isValidEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v ?? "").trim());
 
-// Key alias sets
+// Alias sets (lowercase) for robust header matching
 const EMAIL_SET   = new Set(["email","email_address","contact_email"]);
 const PHONE_SET   = new Set(["phone","mobile","contact_phone"]);
 const DATE_SET    = new Set(["date","created_at","createdat","created date","created_date"]);
 const STATE_SET   = new Set(["state","st","st_code","region","stade_cd"]);
 const COMPANY_SET = new Set(["company","company_name","account","account_name"]);
 
+// Case-insensitive real-key resolver for a row
+function getRealKey(row, setLower) {
+  const lcMap = useMemoizedLcMap(row);
+  for (const k of Object.keys(row)) {
+    if (setLower.has(k.toLowerCase())) return k;
+  }
+  // fallback via lc map if needed
+  for (const want of setLower) {
+    if (lcMap[want]) return lcMap[want];
+  }
+  return null;
+}
+
+// lightweight per-call cache of lowercase -> real key
 function useMemoizedLcMap(row) {
   const lc = {};
   Object.keys(row).forEach((k) => (lc[k.toLowerCase()] = k));
   return lc;
 }
 
-function getRealKey(row, setLower) {
-  const lc = useMemoizedLcMap(row);
-  for (const k of Object.keys(row)) {
-    if (setLower.has(k.toLowerCase())) return k;
-  }
-  for (const want of setLower) {
-    if (lc[want]) return lc[want];
-  }
-  return null;
-}
-
 function resolveKeyFromRows(rows, setLower, fallback) {
   if (!rows.length) return fallback;
-  const found = getRealKey(rows[0], setLower);
+  const first = rows[0];
+  const found = getRealKey(first, setLower);
   return found ?? fallback;
 }
 
-// --- Metrics ---
 function computeMetrics(rows) {
   if (!rows.length) return { Completeness: 0, Consistency: 0, Validity: 0, Uniqueness: 0 };
 
@@ -68,7 +70,6 @@ function computeMetrics(rows) {
     seen.add(key);
     return true;
   }).length;
-
   const uniqueness = (uniqueCount / rows.length) * 100;
 
   return {
@@ -79,7 +80,7 @@ function computeMetrics(rows) {
   };
 }
 
-// --- Fix Impact ---
+// --- Fix Impact aggregation ---
 function computeFixImpact(fixedRows, dedupRemoved) {
   let impact = {
     emailRepaired: 0,
@@ -100,6 +101,7 @@ function computeFixImpact(fixedRows, dedupRemoved) {
     if (fx.phone)   impact.phoneStandardized++;
     if (fx.company) impact.companyStandardized++;
     if (fx.name)    impact.nameParsed++;
+
     for (const k of Object.keys(fx)) {
       if (fx[k] === "whitespace_normalized") impact.textNormalizedCells++;
     }
@@ -107,7 +109,18 @@ function computeFixImpact(fixedRows, dedupRemoved) {
   return impact;
 }
 
-// --- Build BEFORE Issue Map (covers all 4 metrics + phone + duplicates) ---
+// Column classifier (uses exact alias sets; case-insensitive)
+function classifyField(header) {
+  const key = String(header).trim().toLowerCase();
+  if (EMAIL_SET.has(key))   return { type: "email" };
+  if (PHONE_SET.has(key))   return { type: "phone" };
+  if (DATE_SET.has(key))    return { type: "date" };
+  if (STATE_SET.has(key))   return { type: "state" };
+  if (COMPANY_SET.has(key)) return { type: "company" };
+  return { type: "other" };
+}
+
+// Build BEFORE issues map to cover all 4 dimensions, alias-aware
 function buildIssuesMap(rows) {
   const m = new Map();
   if (!rows.length) return m;
@@ -117,39 +130,40 @@ function buildIssuesMap(rows) {
   const dateKey    = resolveKeyFromRows(rows, DATE_SET, "date");
   const companyKey = resolveKeyFromRows(rows, COMPANY_SET, "company");
 
+  // Uniqueness: find duplicates by email+company
   const keyToIndices = new Map();
   rows.forEach((r, idx) => {
     const k = `${(r[emailKey] ?? "").toLowerCase()}||${(r[companyKey] ?? "").toLowerCase()}`;
     if (!keyToIndices.has(k)) keyToIndices.set(k, []);
     keyToIndices.get(k).push(idx);
   });
-  const duplicateIdx = new Set();
-  for (const arr of keyToIndices.values()) if (arr.length > 1) arr.forEach((i) => duplicateIdx.add(i));
+  const duplicateIndexSet = new Set();
+  for (const arr of keyToIndices.values()) {
+    if (arr.length > 1) arr.forEach((i) => duplicateIndexSet.add(i));
+  }
 
   rows.forEach((row, idx) => {
+    // Start with detectIssues (validity/consistency/phone)
     const base = detectIssues(row) || {};
+
+    // Completeness empties
     const issues = {
       ...base,
       missing_email:   isEmpty(row[emailKey]),
       missing_state:   isEmpty(row[stateKey]),
       missing_date:    isEmpty(row[dateKey]),
       missing_company: isEmpty(row[companyKey]),
-      duplicate:       duplicateIdx.has(idx),
+      duplicate:       duplicateIndexSet.has(idx),
     };
+
+    // Consistency rule for state BEFORE: flag if not 2-letter USPS
+    const stVal = row[stateKey];
+    const alreadyUSPS = /^[A-Za-z]{2}$/.test(String(stVal || "")) && String(stVal).toUpperCase() === String(stVal).toUpperCase();
+    if (!alreadyUSPS) issues.state = true; // (keeps true if detectIssues already set it)
+
     m.set(idx, issues);
   });
   return m;
-}
-
-// --- Field Classifier ---
-function classifyField(header) {
-  const key = header.toLowerCase().trim();
-  if (EMAIL_SET.has(key))   return "email";
-  if (PHONE_SET.has(key))   return "phone";
-  if (DATE_SET.has(key))    return "date";
-  if (STATE_SET.has(key))   return "state";
-  if (COMPANY_SET.has(key)) return "company";
-  return "other";
 }
 
 export default function SeeInAction() {
@@ -158,12 +172,12 @@ export default function SeeInAction() {
   const [dedupRemoved, setDedupRemoved] = useState(0);
   const [showFixed, setShowFixed] = useState(false);
   const fileRef = useRef(null);
-
-  const [localIndex, setLocalIndex] = useState(null);
   const [question, setQuestion] = useState("");
   const [answers, setAnswers] = useState([]);
+  const [localIndex, setLocalIndex] = useState(null);
 
   const issuesMap = useMemo(() => buildIssuesMap(rawRows), [rawRows]);
+
   const before = useMemo(() => computeMetrics(rawRows), [rawRows]);
   const after  = useMemo(() => computeMetrics(fixedRows), [fixedRows]);
   const fixImpact = useMemo(() => computeFixImpact(fixedRows, dedupRemoved), [fixedRows, dedupRemoved]);
@@ -183,55 +197,38 @@ export default function SeeInAction() {
         setFixedRows([]);
         setDedupRemoved(0);
         setShowFixed(false);
-        setLocalIndex(null);
       },
     });
   }
 
-function doFixes() {
-  // 1) Apply cleaning transformations
-  const cleaned = rawRows.map(applyFixes);
+  function doFixes() {
+    const cleaned = rawRows.map(applyFixes);
 
-  // 2) De-duplicate after cleaning (email + company)
-  const seen = new Map();
-  let removed = 0;
-  const deduped = [];
+    // De-dup by email+company AFTER cleanup; annotate surviving row
+    const seen = new Map(); // key -> index of canonical kept row
+    let removed = 0;
 
-  cleaned.forEach((r) => {
-    const emailKey = getRealKey(r, EMAIL_SET) || "email";
-    const companyKey = getRealKey(r, COMPANY_SET) || "company";
-    const key = `${(r[emailKey] ?? "").toLowerCase()}||${(r[companyKey] ?? "").toLowerCase()}`;
+    const deduped = [];
+    cleaned.forEach((r) => {
+      const emailKey = getRealKey(r, EMAIL_SET) || "email";
+      const companyKey = getRealKey(r, COMPANY_SET) || "company";
+      const key = `${(r[emailKey] ?? "").toLowerCase()}||${(r[companyKey] ?? "").toLowerCase()}`;
 
-    if (!seen.has(key)) {
-      seen.set(key, deduped.length);
-      deduped.push({ ...r });
-    } else {
-      removed++;
-      const canonical = deduped[seen.get(key)];
-      canonical.__fixes = { ...(canonical.__fixes || {}), duplicate_merged: true };
-    }
-  });
+      if (!seen.has(key)) {
+        seen.set(key, deduped.length);
+        deduped.push({ ...r });
+      } else {
+        removed += 1;
+        const canonicalIdx = seen.get(key);
+        const canonical = deduped[canonicalIdx];
+        canonical.__fixes = { ...(canonical.__fixes || {}), duplicate_merged: (canonical.__fixes?.duplicate_merged || 0) + 1 };
+      }
+    });
 
-  setFixedRows(deduped);
-  setDedupRemoved(removed);
-
-  // ✅ Create index in the correct shape
-  const idx = createLocalIndex(deduped);
-  setLocalIndex(idx);
-
-  setShowFixed(true);
-}
-
-
-  function exportCSV() {
-    const rows = showFixed ? fixedRows : rawRows;
-    if (!rows.length) return;
-    const cols = Object.keys(rows[0]);
-    const csv = [cols.join(","), ...rows.map((r) => cols.map((c) => r[c] ?? "").join(","))].join("\n");
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
-    a.download = showFixed ? "qoriq_cleaned_after_fixes.csv" : "qoriq_raw_before_fixes.csv";
-    a.click();
+    setFixedRows(deduped);
+    setLocalIndex(createLocalIndex(deduped));
+    setDedupRemoved(removed);
+    setShowFixed(true);
   }
 
   const previewRows = showFixed ? fixedRows : rawRows;
@@ -252,11 +249,18 @@ function doFixes() {
         {/* Scores */}
         {rawRows.length > 0 && (
           <>
-            <div><div className="text-sm text-white/70 mb-1">AI Readiness Score Before Fixes</div><ScoreGrid metrics={before} /></div>
+            <div>
+              <div className="text-sm text-white/70 mb-1">AI Readiness Score Before Fixes</div>
+              <ScoreGrid metrics={before} />
+            </div>
             {showFixed && (
               <>
-                <div><div className="text-sm text-white/70 mb-1">AI Readiness Score After Fixes</div><ScoreGrid metrics={after} prevMetrics={before} /></div>
+                <div>
+                  <div className="text-sm text-white/70 mb-1">AI Readiness Score After Fixes</div>
+                  <ScoreGrid metrics={after} prevMetrics={before} />
+                </div>
                 <ImprovementsBanner scoresBefore={before} scoresAfter={after} />
+
                 <div className="rounded-xl bg-white/5 border border-white/10 p-4 text-sm">
                   <div className="font-semibold text-white mb-2">Fix Impact (Summary)</div>
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
@@ -275,13 +279,16 @@ function doFixes() {
           </>
         )}
 
-        {/* Table + Insights */}
+        {/* Table & Insights */}
         {previewRows.length > 0 && (
           <>
             <div className="rounded-xl border border-white/10 overflow-auto max-h-[450px] text-sm">
               <table className="min-w-full">
                 <thead className="bg-[#0B2240] text-white/80 sticky top-0">
-                  <tr><th className="w-6"></th>{headers.map(h => <th key={h} className="px-3 py-2 text-left border-b border-white/10">{h}</th>)}</tr>
+                  <tr>
+                    <th className="w-6"></th>
+                    {headers.map(h => <th key={h} className="px-3 py-2 text-left border-b border-white/10">{h}</th>)}
+                  </tr>
                 </thead>
                 <tbody>
                   {previewRows.slice(0, 200).map((row, i) => {
@@ -296,8 +303,9 @@ function doFixes() {
                           {isFixedRow && <span className="h-2 w-2 bg-emerald-400 rounded-full inline-block" />}
                         </td>
                         {headers.map((h) => {
-                          const type = classifyField(h);
+                          const { type } = classifyField(h);
 
+                          // BEFORE: highlight any field that contributes an issue
                           const beforeNeedsFix =
                             !showFixed && (
                               (type === "email"   && (issues.email || issues.missing_email || issues.duplicate)) ||
@@ -307,6 +315,7 @@ function doFixes() {
                               (type === "company" && (issues.missing_company || issues.duplicate))
                             );
 
+                          // AFTER: highlight only if this exact field was fixed
                           const afterWasFixed =
                             showFixed && row.__fixes && (
                               (type === "email"   && row.__fixes.email) ||
@@ -337,115 +346,6 @@ function doFixes() {
 
             {showFixed && <InsightsPanel scoresBefore={before} scoresAfter={after} fixImpact={fixImpact} />}
           </>
-        )}
-
-        {/* CTA: Export, Sync, Ask Your Data */}
-        {fixedRows.length > 0 && (
-          <div className="border-t border-white/15 pt-10 space-y-10">
-            <div className="flex flex-wrap gap-3">
-              <button onClick={exportCSV} className="bg-[#38BDF8] text-[#07172B] px-4 py-2 rounded-xl font-semibold hover:bg-[#67D2FF]">
-                Export Cleaned Data
-              </button>
-
-              <button
-                onClick={() => alert("✅ Synced to AWS Bedrock Knowledge Base (stub).")}
-                className="border border-white/25 px-4 py-2 rounded-xl hover:bg-white/10"
-              >
-                Sync to AWS Bedrock KB
-              </button>
-
-              <button
-                onClick={() => window.location.href = "/ask"}
-                className="bg-white text-[#07172B] px-4 py-2 rounded-xl font-semibold hover:bg-gray-100"
-              >
-                Ask Your Data
-              </button>
-
-
-            </div>
-
-            <div id="ask-your-data-section" className="rounded-xl bg-[#0A1A33] border border-white/10 p-6 text-white">
-              <h3 className="text-lg font-semibold mb-3">Ask Your Data</h3>
-              <p className="text-white/70 text-sm mb-4">
-                Ask natural-language questions directly over your cleaned dataset.
-              </p>
-
-              <input
-                type="text"
-                placeholder="Ask a question..."
-                value={question}
-                onChange={(e) => setQuestion(e.target.value)}
-                className="w-full rounded-lg px-3 py-2 text-black text-sm mb-3"
-              />
-
-                <button
-                  onClick={() => {
-                    if (!localIndex) {
-                      setAnswers([{ type: "error", text: "⚠️ Apply fixes first." }]);
-                      return;
-                    }
-                    setAnswers(askQuestion(localIndex, question)); // ✅ correct order
-                  }}
-                  className="bg-[#38BDF8] text-[#07172B] px-4 py-2 rounded-xl font-semibold hover:bg-[#67D2FF]"
-                >
-                  Ask
-                </button>
-
-
-              {answers.length > 0 && (
-                <div className="space-y-4 mt-6">
-                  {answers.map((a, i) => {
-                    // If our result is a structured insight object
-                    if (a.type === "insight") {
-                      return (
-                        <div key={i} className="rounded-xl bg-white/5 border border-white/10 p-6 space-y-4">
-                          <div className="text-lg font-semibold text-white">{a.headline}</div>
-                          <p className="text-white/75 text-sm leading-relaxed">{a.narrative}</p>
-
-                          {a.bullets && (
-                            <ul className="list-disc list-inside text-white/70 text-sm space-y-1">
-                              {a.bullets.map((b, idx) => <li key={idx}>{b}</li>)}
-                            </ul>
-                          )}
-
-                          {a.recommendation && (
-                            <div className="text-white font-medium text-sm border-t border-white/10 pt-3">
-                              Recommendation: {a.recommendation}
-                            </div>
-                          )}
-                        </div>
-                      );
-                    }
-
-                    // If system suggests better prompts
-                    if (a.type === "prompt_help") {
-                      return (
-                        <div key={i} className="text-white/70 text-sm">
-                          Try asking:
-                          <ul className="mt-2 list-disc list-inside">
-                            {a.examples.map((ex, i2) => <li key={i2}>{ex}</li>)}
-                          </ul>
-                        </div>
-                      );
-                    }
-
-                    // Fallback: any plain text answer
-                    return (
-                      <div key={i} className="rounded-xl bg-white/5 border border-white/10 p-4 text-sm leading-relaxed">
-                        {a.text ?? JSON.stringify(a, null, 2)}
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-
-
-
-              {answers && answers.length === 0 && question.trim() !== "" && (
-                <div className="text-white/50 text-sm mt-2">No matches found.</div>
-              )}
-            </div>
-          </div>
         )}
 
       </main>

@@ -115,28 +115,31 @@ export default function App() {
             <div className="mt-6 flex flex-wrap items-center gap-3">
 
             {/* Request Demo (unchanged) */}
-            <button
-                onClick={() => setOpen(true)}
-                className="rounded-2xl bg-[#38BDF8] px-5 py-3 text-sm font-semibold text-[#081728] shadow-lg hover:bg-[#67D2FF]"
-            >
-                Request a Demo
-            </button>
-
+            
             {/* ✅ NEW — See In Action */}
             <button
-                onClick={() => (window.location.href = "/product/see-in-action")}
-                className="rounded-2xl border border-white/15 px-5 py-3 text-sm font-semibold text-white/90 hover:bg-white/10"
+              onClick={() => (window.location.href = "/product/see-in-action")}
+              className="rounded-2xl border border-white/15 px-5 py-3 text-sm font-semibold text-white/90 hover:bg-white/10"
             >
-                See In Action
+              See In Action
+            </button>
+
+            {/* ✅ NEW — Ask Your Data */}
+            <button
+              onClick={() => (window.location.href = "/product/ask-your-data")}
+              className="rounded-2xl border border-white/15 px-5 py-3 text-sm font-semibold text-white/90 hover:bg-white/10"
+            >
+              Ask Your Data
             </button>
 
             {/* Watch Overview (unchanged) */}
-            <a
-                href="#how"
-                className="rounded-2xl border border-white/15 px-5 py-3 text-sm font-semibold text-white/90 hover:bg-white/10"
+            <a 
+              href="#how"
+              className="rounded-2xl border border-white/15 px-5 py-3 text-sm font-semibold text-white/90 hover:bg-white/10"
             >
-                Watch 90-Second Overview
+              Watch 90-Second Overview
             </a>
+           
 
             <div className="text-xs text-white/60">
                 No AWS required in demo mode
