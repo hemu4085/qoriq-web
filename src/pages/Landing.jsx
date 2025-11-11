@@ -94,131 +94,118 @@ export default function App() {
         </div>
       </header>
 
-      {/* HERO */}
-      <section className="relative overflow-hidden">
-        {/* glow */}
-        <div className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(60%_60%_at_50%_10%,black,transparent)]">
-          <div className="absolute -top-32 left-1/2 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-[#0EA5E9]/20 blur-3xl" />
+ {/* HERO */}
+<section className="relative overflow-hidden">
+  {/* glow */}
+  <div className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(60%_60%_at_50%_10%,black,transparent)]">
+    <div className="absolute -top-32 left-1/2 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-[#0EA5E9]/20 blur-3xl" />
+  </div>
+
+  <div className="mx-auto max-w-7xl px-4 pb-16 pt-20 sm:pb-24 sm:pt-24 grid items-center gap-12 lg:grid-cols-2">
+    <div>
+      <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+        Solve Your Data. <span className="text-[#38BDF8]">Solve Your AI.</span>
+      </h1>
+      <p className="mt-4 max-w-xl text-white/80 text-lg">
+        Qoriq is an AI-first data readiness platform that transforms raw
+        enterprise data into AI-ready, validated, and trusted data for
+        production LLM &amp; RAG workloads.
+      </p>
+
+      {/* ✅ BUTTON ROW FIXED — correct closing tags */}
+      <div className="mt-6 flex flex-wrap items-center gap-3">
+        <button
+          onClick={() => (window.location.href = "/see-in-action")}
+          className="rounded-2xl border border-white/15 px-5 py-3 text-sm font-semibold text-white/90 hover:bg-white/10"
+        >
+          See In Action
+        </button>
+
+        <button
+          onClick={() => (window.location.href = "/ask-your-data")}
+          className="rounded-2xl border border-white/15 px-5 py-3 text-sm font-semibold text-white/90 hover:bg-white/10"
+        >
+          Ask Your Data
+        </button>
+
+        <button
+          onClick={() => (window.location.href = "/demo")}
+          className="rounded-2xl border border-white/15 px-5 py-3 text-sm font-semibold text-white/90 hover:bg-white/10"
+        >
+          Demo (Instant Sample Data)
+        </button>
+      </div>
+      {/* ✅ Closing div was missing above */}
+      
+      {/* quick badges */}
+      <div className="mt-6 flex flex-wrap items-center gap-4 text-xs text-white/60">
+        <Badge icon="check">Data Quality Scoring</Badge>
+        <Badge icon="plus">Fix Studio</Badge>
+        <Badge icon="menu">RAG Q&amp;A</Badge>
+      </div>
+    </div>
+
+    {/* Scorecard mockup (unchanged) */}
+    <div className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-2xl ring-1 ring-white/10">
+      <div className="rounded-xl bg-[#07172B] p-4">
+        <div className="mb-4 flex items-center justify-between text-xs text-white/70">
+          <span>AI Readiness Scorecard</span>
+          <span className="rounded-full bg-emerald-400/10 px-2 py-0.5 text-emerald-300 ring-1 ring-emerald-300/20">
+            A-
+          </span>
         </div>
 
-        <div className="mx-auto max-w-7xl px-4 pb-16 pt-20 sm:pb-24 sm:pt-24 grid items-center gap-12 lg:grid-cols-2">
-          <div>
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-              Solve Your Data.{" "}
-              <span className="text-[#38BDF8]">Solve Your AI.</span>
-            </h1>
-            <p className="mt-4 max-w-xl text-white/80 text-lg">
-              Qoriq is an AI-first data readiness platform that transforms raw
-              enterprise data into AI-ready, validated, and trusted data for
-              production LLM &amp; RAG workloads.
-            </p>
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-
-            {/* Request Demo (unchanged) */}
-            
-            {/* ✅ NEW — See In Action */}
-            <button
-             onClick={() => (window.location.href = "/see-in-action")}
-              className="rounded-2xl border border-white/15 px-5 py-3 text-sm font-semibold text-white/90 hover:bg-white/10"
-            >
-              See In Action
-            </button>
-
-            {/* ✅ NEW — Ask Your Data */}
-            <button
-              onClick={() => (window.location.href = "/ask-your-data")}
-              className="rounded-2xl border border-white/15 px-5 py-3 text-sm font-semibold text-white/90 hover:bg-white/10"
-            >
-              Ask Your Data
-            </button>
-
-            {/* Watch Overview (unchanged) */}
-            <a 
-              href="#how"
-              className="rounded-2xl border border-white/15 px-5 py-3 text-sm font-semibold text-white/90 hover:bg-white/10"
-            >
-              Watch 90-Second Overview
-            </a>
-           
-
-            <div className="text-xs text-white/60">
-                No AWS required in demo mode
+        <div className="grid grid-cols-2 gap-3">
+          {[
+            { k: "Completeness", b: 72, a: 91 },
+            { k: "Consistency", b: 68, a: 88 },
+            { k: "Uniqueness", b: 83, a: 95 },
+            { k: "Validity", b: 74, a: 89 },
+            { k: "Timeliness", b: 69, a: 84 },
+            { k: "Integrity", b: 77, a: 93 },
+          ].map((m) => (
+            <div key={m.k} className="rounded-xl bg-white/5 p-3 ring-1 ring-white/10">
+              <div className="flex items-center justify-between text-xs text-white/70">
+                <span>{m.k}</span>
+                <span>{m.a}%</span>
+              </div>
+              <div className="mt-2 h-2 rounded-full bg-white/10">
+                <div
+                  className="h-2 rounded-full bg-[#38BDF8]"
+                  style={{ width: `${m.a}%` }}
+                />
+              </div>
+              <div className="mt-1 text-[10px] text-white/50">
+                Before: {m.b}% → After: {m.a}%
+              </div>
             </div>
-            </div>
+          ))}
+        </div>
 
-
-            {/* quick badges */}
-            <div className="mt-6 flex flex-wrap items-center gap-4 text-xs text-white/60">
-              <Badge icon="check">Data Quality Scoring</Badge>
-              <Badge icon="plus">Fix Studio</Badge>
-              <Badge icon="menu">RAG Q&amp;A</Badge>
-            </div>
+        <div className="mt-4 grid gap-2 text-xs text-white/70 sm:grid-cols-2">
+          <div className="rounded-lg bg-white/5 p-3 ring-1 ring-white/10">
+            <div className="mb-1 font-semibold text-white/80">Top Issues</div>
+            <ul className="list-disc space-y-1 pl-4">
+              <li>State codes mis-matched (CA/Cal/Calif)</li>
+              <li>Missing contact emails (12%)</li>
+              <li>Date format inconsistencies</li>
+            </ul>
           </div>
 
-          {/* Scorecard mockup */}
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-2xl ring-1 ring-white/10">
-            <div className="rounded-xl bg-[#07172B] p-4">
-              <div className="mb-4 flex items-center justify-between text-xs text-white/70">
-                <span>AI Readiness Scorecard</span>
-                <span className="rounded-full bg-emerald-400/10 px-2 py-0.5 text-emerald-300 ring-1 ring-emerald-300/20">
-                  A-
-                </span>
-              </div>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { k: "Completeness", b: 72, a: 91 },
-                  { k: "Consistency", b: 68, a: 88 },
-                  { k: "Uniqueness", b: 83, a: 95 },
-                  { k: "Validity", b: 74, a: 89 },
-                  { k: "Timeliness", b: 69, a: 84 },
-                  { k: "Integrity", b: 77, a: 93 },
-                ].map((m) => (
-                  <div
-                    key={m.k}
-                    className="rounded-xl bg-white/5 p-3 ring-1 ring-white/10"
-                  >
-                    <div className="flex items-center justify-between text-xs text-white/70">
-                      <span>{m.k}</span>
-                      <span>{m.a}%</span>
-                    </div>
-                    <div className="mt-2 h-2 rounded-full bg-white/10">
-                      <div
-                        className="h-2 rounded-full bg-[#38BDF8]"
-                        style={{ width: `${m.a}%` }}
-                      />
-                    </div>
-                    <div className="mt-1 text-[10px] text-white/50">
-                      Before: {m.b}% → After: {m.a}%
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-4 grid gap-2 text-xs text-white/70 sm:grid-cols-2">
-                <div className="rounded-lg bg-white/5 p-3 ring-1 ring-white/10">
-                  <div className="mb-1 font-semibold text-white/80">
-                    Top Issues
-                  </div>
-                  <ul className="list-disc space-y-1 pl-4">
-                    <li>State codes mis-matched (CA/Cal/Calif)</li>
-                    <li>Missing contact emails (12%)</li>
-                    <li>Date format inconsistencies</li>
-                  </ul>
-                </div>
-                <div className="rounded-lg bg-white/5 p-3 ring-1 ring-white/10">
-                  <div className="mb-1 font-semibold text-white/80">
-                    AI Fix Suggestions
-                  </div>
-                  <ul className="list-disc space-y-1 pl-4">
-                    <li>Normalize states via USPS mapping</li>
-                    <li>Deduplicate by email + company</li>
-                    <li>Standardize dates to ISO 8601</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+          <div className="rounded-lg bg-white/5 p-3 ring-1 ring-white/10">
+            <div className="mb-1 font-semibold text-white/80">AI Fix Suggestions</div>
+            <ul className="list-disc space-y-1 pl-4">
+              <li>Normalize states via USPS mapping</li>
+              <li>Deduplicate by email + company</li>
+              <li>Standardize dates to ISO 8601</li>
+            </ul>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* FEATURES: Make data AI-ready, fast */}
       <section id="features" className="mx-auto max-w-7xl px-4 py-16 sm:py-24">

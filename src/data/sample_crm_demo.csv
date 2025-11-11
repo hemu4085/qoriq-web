@@ -1,0 +1,201 @@
+lead_id,first_name,last_name,company_name,email,industry,region,deal_stage,last_touch_date,last_contacted_by,deal_value,notes
+L001,John,Garcia,ACME Corporation,john.garcia@outlook.com,saas,TX,Discover,2025-10-30,,544903.0,Strong champion inside account.
+L002,,Martinez,Datasoft Inc,.martinez@bizmail.com,Healthcare,CA,DISCOVERY,2025-09-21,Aisha,367944.0,Asked about pricing / timeline uncertain.
+L003,Sara,Khan,Blue Wave Technologies,sara.khan@company.com,Fin Services,TX,Discover,2025-09-16,,674176.0,Strong champion inside account.
+L004,Luis,Lopez,Globex LLC,,Healthcare,Calif.,Demo Scheduled,2025-09-16,Khan,185555.0,"Budget issue, revisit later."
+L005,Liam,Martinez,Globex,liam.martinez@gmail.com,Healthcare ,NY,DISCOVERY,2025-09-30,Khan,245283.0,
+L006,Olivia,Garcia,Apex Systems,olivia.garcia@gmail.com,Healthcare,Calif.,Demo Scheduled,2025-08-23,Liam,538481.0,Internal approval pending.
+L007,Liam,Brown,DataSoft,liam.brown@outlook.com,Healthcare ,New York,Closed Lost,2025-08-21,David,160051.0,Strong champion inside account.
+L008,Olivia,,Globex,olivia.@gmail.com,saas,MA,Closed Lost,,Sophia,595099.0,Asked about pricing / timeline uncertain.
+L009,Sara,Johnson,Inno-Tech,sara.johnson@company.com,SaaS,New York,Proposal,2025-11-03,Johnson,539902.0,Requested proposal / follow-up needed.
+L010,Sara,Brown,Globex,sara.brown@outlook.com,Healthcare ,TX,Discovery,2025-09-02,,337451.0,Requested proposal / follow-up needed.
+L011,,Patel,ACME Corporation,.patel@gmail.com,Healthcare ,California,DISCOVERY,2025-08-25,Patel,458692.0,Requested proposal / follow-up needed.
+L012,Olivia,Garcia,BlueWave,olivia.garcia@company.com,saas,Mass,Proposal Sent,2025-09-07,David,,Asked about pricing / timeline uncertain.
+L013,Priya,Smith,Acme Corp,priya.smith@gmail.com,FinServ,Calif.,Discovery,2025-10-25,Emily,239643.0,Strong champion inside account.
+L014,Sophia,Gupta,APEX SYSTEMS,sophia.gupta@bizmail.com,Fin Services,NY,Discover,,Emma,779491.0,Asked about pricing / timeline uncertain.
+L015,Liam,,ACME Corporation,liam.@bizmail.com,FinServ,NY,Demo Scheduled,2025-10-17,Emily,94046.0,Internal approval pending.
+L016,Emma,Smith,Globex LLC,emma.smith@gmail.com,FinServ,MA,Proposal Sent,2025-09-13,Luis,424386.0,"Budget issue, revisit later."
+L017,Olivia,Williams,Innotech,olivia.williams@bizmail.com,FinServ,CA,Closed Lost,2025-10-27,Sara,,Internal approval pending.
+L018,Emma,Smith,ACME Corporation,emma.smith@gmail.com,Healthcare ,Calif.,Demo Scheduled,2025-08-23,Brown,,Asked about pricing / timeline uncertain.
+L019,Ravi,Khan,Blue Wave Technologies,ravi.khan@company.com,Healthcare,NY,Demo,2025-08-10,Sophia,91066.0,Asked about pricing / timeline uncertain.
+L020,Ravi,Patel,Globex,ravi.patel@outlook.com,Healthcare,Calif.,Demo Scheduled,2025-10-14,Lee,656390.0,
+L021,Liam,Brown,Globex,liam.brown@gmail.com,Healthcare,Calif.,Discover,2025-10-15,Brown,374536.0,Requested proposal / follow-up needed.
+L022,Emma,Singh,Acme Corp,emma.singh@company.com,SaaS,MA,Demo,,Chen,289680.0,Requested proposal / follow-up needed.
+L023,Emily,Johnson,Blue Wave Technologies,emily.johnson@gmail.com,FinServ,TX,Discovery,2025-08-21,Emma,338232.0,"Budget issue, revisit later."
+L024,Olivia,Smith,Globex LLC,olivia.smith@company.com,saas,Calif.,DM scheduled,2025-09-12,Johnson,263237.0,Requested proposal / follow-up needed.
+L025,Olivia,Williams,Inno-Tech,olivia.williams@gmail.com,Fin Services,NY,Demo,2025-10-21,Sara,248238.0,Requested proposal / follow-up needed.
+L026,David,Davis,BlueWave,david.davis@outlook.com,FinServ,MA,DM scheduled,2025-10-26,Emily,549150.0,Internal approval pending.
+L027,Emma,Smith,Innotech,emma.smith@gmail.com,FinServ,Texas,Demo,,Noah,343914.0,Internal approval pending.
+L028,Emily,,Blue Wave Technologies,emily.@outlook.com,Fin Services,CA,Closed Won,2025-08-27,Johnson,221606.0,"Budget issue, revisit later."
+L029,Liam,Gupta,ACME Corporation,liam.gupta@company.com,saas,New York,Closed Won,2025-09-12,Singh,148470.0,Requested proposal / follow-up needed.
+L030,Aisha,Lee,Acme Corp,aisha.lee@company.com,Healthcare,New York,Demo Scheduled,2025-08-21,Liam,478638.0,
+L031,David,Davis,Innotech,david.davis@outlook.com,Healthcare ,Texas,DM scheduled,,David,250552.0,Requested proposal / follow-up needed.
+L032,John,Singh,BlueWave,john.singh@gmail.com,Healthcare ,NY,Proposal,2025-10-03,Singh,,Asked about pricing / timeline uncertain.
+L033,Priya,Lopez,Globex LLC,,SaaS,Massachusetts,DISCOVERY,2025-08-10,Lee,479071.0,Strong champion inside account.
+L034,Sophia,Johnson,Blue Wave Technologies,sophia.johnson@bizmail.com,Fin Services,Massachusetts,Demo,2025-08-14,Gupta,672193.0,Requested proposal / follow-up needed.
+L035,Sara,Garcia,DataSoft,sara.garcia@company.com,SaaS,California,DISCOVERY,2025-10-15,Mike,361954.0,Strong champion inside account.
+L036,John,Williams,Datasoft Inc,john.williams@bizmail.com,saas,CA,Closed Lost,2025-11-03,Ravi,454375.0,Strong champion inside account.
+L037,Emily,Garcia,Apex Systems,emily.garcia@bizmail.com,Fin Services,CA,Proposal,2025-09-13,Lopez,148827.0,Strong champion inside account.
+L038,Sophia,Gupta,Apex Systems,,FinServ,Massachusetts,DISCOVERY,,Aisha,368894.0,Internal approval pending.
+L039,Emma,Patel,DataSoft,,SaaS,Mass,Demo Scheduled,2025-08-12,,,Requested proposal / follow-up needed.
+L040,John,Garcia,ACME Corporation,john.garcia@outlook.com,Healthcare ,NY,Proposal Sent,2025-09-17,Brown,768252.0,Asked about pricing / timeline uncertain.
+L041,Mike,Patel,Datasoft Inc,mike.patel@gmail.com,saas,MA,Proposal,2025-10-09,,672711.0,Requested proposal / follow-up needed.
+L042,Olivia,Martinez,Datasoft Inc,olivia.martinez@gmail.com,SaaS,Mass,Closed Won,2025-09-17,,28266.0,Internal approval pending.
+L043,Sara,Khan,Apex Systems,sara.khan@bizmail.com,FinServ,TX,Demo,2025-08-27,Sophia,636254.0,"Budget issue, revisit later."
+L044,Priya,Patel,Globex LLC,priya.patel@company.com,Fin Services,Texas,Closed Lost,2025-09-21,,205672.0,Internal approval pending.
+L045,Olivia,Brown,DataSoft,olivia.brown@company.com,FinServ,Calif.,Demo Scheduled,2025-09-02,David,692278.0,
+L046,Olivia,,Blue Wave Technologies,olivia.@company.com,FinServ,New York,Closed Lost,2025-08-25,Emma,592124.0,"Budget issue, revisit later."
+L047,David,Brown,Globex LLC,david.brown@outlook.com,Healthcare,Calif.,Closed Won,2025-10-11,Johnson,774782.0,Strong champion inside account.
+L048,Emily,Patel,Inno-Tech,emily.patel@outlook.com,FinServ,New York,Discovery,2025-10-18,Sara,746295.0,Requested proposal / follow-up needed.
+L049,Olivia,Smith,APEX SYSTEMS,olivia.smith@company.com,Healthcare,California,Discovery,2025-09-03,Mike,92680.0,Strong champion inside account.
+L050,John,Davis,Globex LLC,,SaaS,TX,Proposal,2025-08-16,Patel,479226.0,"Budget issue, revisit later."
+L051,Aisha,Gupta,Blue Wave Technologies,aisha.gupta@gmail.com,SaaS,NY,Demo Scheduled,2025-10-24,Luis,179136.0,Asked about pricing / timeline uncertain.
+L052,Noah,Brown,Blue Wave Technologies,noah.brown@gmail.com,Healthcare,Massachusetts,Discover,2025-10-01,Khan,222428.0,Internal approval pending.
+L053,Priya,Brown,Globex,,Healthcare,Texas,Closed Lost,2025-09-08,Singh,437060.0,"Budget issue, revisit later."
+L054,David,Gupta,Blue Wave Technologies,david.gupta@gmail.com,Healthcare,Texas,Demo,,Williams,618139.0,Strong champion inside account.
+L055,Olivia,Brown,Globex,olivia.brown@gmail.com,Fin Services,TX,Proposal Sent,2025-10-11,Emma,530611.0,Asked about pricing / timeline uncertain.
+L056,Aisha,Martinez,Inno-Tech,aisha.martinez@gmail.com,Fin Services,Massachusetts,Demo,2025-09-13,Lee,,Asked about pricing / timeline uncertain.
+L057,Luis,,Acme Corp,luis.@bizmail.com,saas,TX,Proposal Sent,2025-10-10,Brown,670788.0,Internal approval pending.
+L058,Priya,Lee,Blue Wave Technologies,priya.lee@company.com,Fin Services,Calif.,Discovery,2025-08-18,Singh,592596.0,Asked about pricing / timeline uncertain.
+L059,Sara,Patel,BlueWave,sara.patel@bizmail.com,FinServ,Massachusetts,Demo,2025-09-30,Smith,270570.0,Internal approval pending.
+L060,Aisha,Gupta,Innotech,aisha.gupta@outlook.com,Fin Services,Mass,Closed Won,2025-11-03,Ravi,623093.0,
+L061,Mike,Singh,DataSoft,mike.singh@company.com,Fin Services,Massachusetts,DM scheduled,2025-10-04,David,445728.0,Asked about pricing / timeline uncertain.
+L062,David,Davis,BlueWave,david.davis@bizmail.com,saas,California,Proposal Sent,2025-10-18,Garcia,120239.0,Internal approval pending.
+L063,Sophia,Lopez,BlueWave,sophia.lopez@outlook.com,FinServ,Calif.,Proposal Sent,2025-10-01,Singh,99216.0,"Budget issue, revisit later."
+L064,Emma,Khan,Acme Corp,emma.khan@bizmail.com,Healthcare ,Calif.,Demo Scheduled,2025-09-28,Johnson,118225.0,
+L065,Sara,Lopez,Acme Corp,sara.lopez@company.com,Healthcare,CA,Demo,2025-09-09,Patel,729919.0,Requested proposal / follow-up needed.
+L066,Sara,Williams,Datasoft Inc,sara.williams@outlook.com,FinServ,NY,Proposal Sent,2025-09-06,John,502853.0,"Budget issue, revisit later."
+L067,Mike,,Innotech,mike.@company.com,saas,MA,Demo,2025-09-26,Olivia,126834.0,Requested proposal / follow-up needed.
+L068,Luis,Lopez,BlueWave,,Fin Services,New York,Discovery,2025-10-28,Johnson,315096.0,Requested proposal / follow-up needed.
+L069,Luis,Garcia,Blue Wave Technologies,luis.garcia@company.com,saas,California,Discover,2025-08-13,,49985.0,Strong champion inside account.
+L070,Mike,,Apex Systems,mike.@company.com,FinServ,NY,DISCOVERY,2025-09-18,Emily,284452.0,Internal approval pending.
+L071,Chen,Khan,ACME Corporation,chen.khan@gmail.com,FinServ,NY,Proposal,2025-08-24,Martinez,292304.0,Strong champion inside account.
+L072,Luis,Martinez,BlueWave,luis.martinez@company.com,Healthcare,Calif.,Demo Scheduled,2025-08-16,Lee,654717.0,Requested proposal / follow-up needed.
+L073,Liam,Lopez,ACME Corporation,liam.lopez@company.com,FinServ,CA,Discovery,2025-09-01,David,157254.0,Internal approval pending.
+L074,Liam,Lopez,Blue Wave Technologies,liam.lopez@bizmail.com,FinServ,MA,Discover,2025-08-17,Emily,,"Budget issue, revisit later."
+L075,David,Khan,Inno-Tech,david.khan@gmail.com,Healthcare ,Mass,Discovery,2025-10-10,Davis,111126.0,
+L076,Liam,Smith,Globex LLC,liam.smith@gmail.com,FinServ,Texas,Demo Scheduled,,Aisha,259316.0,"Budget issue, revisit later."
+L077,Olivia,Smith,Globex,olivia.smith@company.com,FinServ,TX,Demo,2025-10-20,John,390644.0,Requested proposal / follow-up needed.
+L078,John,Smith,DataSoft,john.smith@outlook.com,SaaS,Calif.,Proposal Sent,2025-09-18,Priya,247311.0,Strong champion inside account.
+L079,,Martinez,Acme Corp,.martinez@company.com,SaaS,Massachusetts,Proposal,2025-10-21,Sophia,,Asked about pricing / timeline uncertain.
+L080,Mike,,Datasoft Inc,mike.@company.com,Healthcare ,Mass,Proposal,2025-08-28,Patel,118996.0,
+L081,Liam,Davis,Globex LLC,liam.davis@outlook.com,Fin Services,Mass,Proposal Sent,2025-10-22,Liam,407483.0,Requested proposal / follow-up needed.
+L082,David,,ACME Corporation,,saas,Mass,DISCOVERY,2025-08-20,Lee,143168.0,Internal approval pending.
+L083,Liam,Williams,Datasoft Inc,liam.williams@gmail.com,Healthcare,Mass,Discover,2025-10-07,Smith,128475.0,"Budget issue, revisit later."
+L084,Luis,,Apex Systems,luis.@company.com,Healthcare ,Texas,Closed Lost,2025-08-24,,742157.0,"Budget issue, revisit later."
+L085,,Davis,Inno-Tech,.davis@company.com,SaaS,California,DISCOVERY,2025-09-13,,47146.0,Asked about pricing / timeline uncertain.
+L086,Priya,Singh,Innotech,priya.singh@company.com,saas,Mass,Closed Lost,2025-10-28,Gupta,721707.0,Asked about pricing / timeline uncertain.
+L087,Liam,Gupta,Globex LLC,liam.gupta@bizmail.com,Healthcare ,Calif.,DM scheduled,2025-09-28,Garcia,714539.0,"Budget issue, revisit later."
+L088,,Gupta,Innotech,,FinServ,California,Demo,2025-10-19,,199229.0,Requested proposal / follow-up needed.
+L089,Noah,Johnson,Blue Wave Technologies,,SaaS,MA,Discovery,2025-10-25,Garcia,439068.0,
+L090,Chen,,Globex,chen.@gmail.com,Healthcare ,Massachusetts,DM scheduled,,David,434902.0,Strong champion inside account.
+L091,Emma,Khan,Globex,emma.khan@outlook.com,SaaS,TX,Discover,2025-10-10,Noah,691796.0,Requested proposal / follow-up needed.
+L092,Mike,Lee,BlueWave,mike.lee@outlook.com,SaaS,California,Proposal Sent,2025-08-23,Sophia,606912.0,
+L093,Ravi,Martinez,ACME Corporation,ravi.martinez@company.com,Fin Services,Massachusetts,Demo,2025-08-20,,340486.0,Internal approval pending.
+L094,John,Brown,ACME Corporation,john.brown@gmail.com,Healthcare ,Texas,Closed Won,2025-08-21,Martinez,58015.0,Internal approval pending.
+L095,Ravi,Khan,Acme Corp,ravi.khan@bizmail.com,Fin Services,Calif.,DM scheduled,2025-10-24,Luis,,
+L096,David,Gupta,Innotech,david.gupta@outlook.com,Fin Services,MA,DM scheduled,2025-10-28,Khan,360705.0,Asked about pricing / timeline uncertain.
+L097,Aisha,Lopez,Datasoft Inc,aisha.lopez@outlook.com,saas,California,DM scheduled,2025-08-12,Olivia,758266.0,Asked about pricing / timeline uncertain.
+L098,Aisha,Khan,Blue Wave Technologies,aisha.khan@outlook.com,saas,TX,Discover,2025-09-10,John,204019.0,Requested proposal / follow-up needed.
+L099,Olivia,Garcia,Innotech,olivia.garcia@outlook.com,SaaS,TX,Closed Won,2025-08-28,,663052.0,Requested proposal / follow-up needed.
+L100,Mike,Lopez,Acme Corp,mike.lopez@outlook.com,Fin Services,Mass,Demo Scheduled,2025-08-17,Johnson,260369.0,Strong champion inside account.
+L101,Olivia,Garcia,Datasoft Inc,olivia.garcia@company.com,Fin Services,Massachusetts,Demo,2025-08-31,Luis,649035.0,Requested proposal / follow-up needed.
+L102,John,Khan,DataSoft,john.khan@gmail.com,SaaS,New York,Discover,2025-09-30,Patel,473723.0,Asked about pricing / timeline uncertain.
+L103,Priya,Khan,Apex Systems,priya.khan@gmail.com,Healthcare ,Mass,Demo Scheduled,2025-10-24,John,118896.0,
+L104,Olivia,Smith,APEX SYSTEMS,olivia.smith@company.com,saas,California,Proposal Sent,2025-11-03,John,171782.0,Strong champion inside account.
+L105,Ravi,Patel,ACME Corporation,ravi.patel@company.com,SaaS,NY,Proposal,2025-08-16,Priya,539108.0,Strong champion inside account.
+L106,Liam,Garcia,Acme Corp,liam.garcia@outlook.com,Healthcare ,Mass,Demo Scheduled,2025-10-11,Mike,393120.0,Asked about pricing / timeline uncertain.
+L107,Emily,Johnson,APEX SYSTEMS,emily.johnson@gmail.com,SaaS,MA,DM scheduled,2025-11-01,Mike,704023.0,
+L108,Ravi,Khan,DataSoft,,Healthcare,California,Proposal Sent,2025-09-03,Martinez,765827.0,Internal approval pending.
+L109,,Davis,Inno-Tech,.davis@outlook.com,Healthcare,TX,Proposal,2025-08-26,Sara,215386.0,"Budget issue, revisit later."
+L110,Olivia,,Inno-Tech,olivia.@company.com,Fin Services,MA,Proposal Sent,2025-09-15,Luis,536691.0,"Budget issue, revisit later."
+L111,Emily,Patel,Datasoft Inc,,FinServ,TX,Demo,2025-10-24,Ravi,646894.0,
+L112,Noah,Singh,Inno-Tech,noah.singh@gmail.com,Healthcare ,MA,Demo,2025-10-27,,395959.0,Strong champion inside account.
+L113,Liam,Smith,BlueWave,liam.smith@outlook.com,Fin Services,CA,DISCOVERY,,Noah,609799.0,Asked about pricing / timeline uncertain.
+L114,Liam,Khan,ACME Corporation,liam.khan@company.com,Healthcare ,California,Closed Won,2025-09-24,David,42172.0,
+L115,Emily,Johnson,Innotech,emily.johnson@gmail.com,saas,Massachusetts,Demo Scheduled,2025-09-28,Smith,157321.0,Asked about pricing / timeline uncertain.
+L116,Sophia,Patel,Blue Wave Technologies,sophia.patel@company.com,SaaS,TX,Closed Won,2025-09-26,Singh,749233.0,
+L117,Luis,Patel,Globex LLC,luis.patel@outlook.com,Fin Services,CA,DM scheduled,2025-09-17,Lee,105403.0,Asked about pricing / timeline uncertain.
+L118,Noah,Johnson,Datasoft Inc,noah.johnson@bizmail.com,SaaS,California,DM scheduled,2025-09-07,Patel,593083.0,
+L119,Olivia,Williams,DataSoft,olivia.williams@gmail.com,FinServ,New York,DISCOVERY,2025-10-06,Patel,97690.0,"Budget issue, revisit later."
+L120,Emily,Martinez,ACME Corporation,emily.martinez@company.com,Healthcare ,California,Closed Lost,2025-10-15,Brown,649534.0,"Budget issue, revisit later."
+L121,Ravi,,BlueWave,,Healthcare ,New York,Demo Scheduled,2025-09-11,John,672629.0,Strong champion inside account.
+L122,Chen,Davis,ACME Corporation,chen.davis@bizmail.com,saas,CA,DISCOVERY,2025-09-03,Liam,342766.0,
+L123,Emma,Williams,DataSoft,emma.williams@outlook.com,Healthcare ,Calif.,DM scheduled,2025-10-19,David,68063.0,"Budget issue, revisit later."
+L124,Emma,Garcia,Datasoft Inc,emma.garcia@outlook.com,saas,Mass,Demo Scheduled,2025-09-01,Sophia,338528.0,Internal approval pending.
+L125,,Johnson,Globex LLC,.johnson@bizmail.com,Healthcare ,Mass,Discovery,,Lopez,508446.0,"Budget issue, revisit later."
+L126,Emma,,Blue Wave Technologies,emma.@outlook.com,Healthcare,MA,DM scheduled,,,395133.0,Strong champion inside account.
+L127,Aisha,Davis,Datasoft Inc,aisha.davis@company.com,saas,Texas,Discover,,,370556.0,Strong champion inside account.
+L128,Olivia,Gupta,Acme Corp,olivia.gupta@bizmail.com,SaaS,California,DM scheduled,2025-08-29,Brown,161570.0,"Budget issue, revisit later."
+L129,Luis,Gupta,DataSoft,luis.gupta@company.com,Healthcare ,TX,Proposal Sent,2025-09-26,John,721537.0,Asked about pricing / timeline uncertain.
+L130,Ravi,Lopez,Innotech,ravi.lopez@gmail.com,saas,Texas,Closed Lost,2025-10-28,Luis,771215.0,Strong champion inside account.
+L131,Aisha,Martinez,Blue Wave Technologies,,SaaS,NY,Discovery,2025-09-11,Singh,541195.0,Strong champion inside account.
+L132,Emma,Lopez,DataSoft,emma.lopez@gmail.com,FinServ,TX,DM scheduled,2025-09-03,Liam,496992.0,Strong champion inside account.
+L133,Luis,Lopez,Globex LLC,luis.lopez@company.com,FinServ,New York,Closed Won,2025-09-26,Singh,754233.0,Internal approval pending.
+L134,Luis,Davis,Datasoft Inc,luis.davis@company.com,saas,TX,Proposal,2025-09-14,Gupta,319561.0,Asked about pricing / timeline uncertain.
+L135,Noah,,Blue Wave Technologies,noah.@bizmail.com,Fin Services,NY,Demo Scheduled,2025-09-30,Singh,129532.0,Strong champion inside account.
+L136,Priya,Martinez,Acme Corp,priya.martinez@outlook.com,SaaS,MA,DM scheduled,2025-10-22,Chen,,Strong champion inside account.
+L137,Mike,Singh,Innotech,mike.singh@bizmail.com,Healthcare,New York,Discovery,2025-10-23,David,773243.0,Asked about pricing / timeline uncertain.
+L138,Mike,Lee,Apex Systems,mike.lee@gmail.com,Fin Services,California,Demo,2025-11-02,Brown,366317.0,"Budget issue, revisit later."
+L139,Liam,Singh,APEX SYSTEMS,liam.singh@outlook.com,Healthcare,NY,Discover,2025-09-06,Singh,368487.0,"Budget issue, revisit later."
+L140,Olivia,Gupta,DataSoft,olivia.gupta@bizmail.com,Healthcare,Calif.,Proposal,2025-10-11,Smith,275096.0,Asked about pricing / timeline uncertain.
+L141,Priya,Brown,Blue Wave Technologies,priya.brown@company.com,Healthcare ,CA,Demo,2025-10-04,,336709.0,Requested proposal / follow-up needed.
+L142,Emily,Lopez,BlueWave,emily.lopez@company.com,Healthcare,Mass,Closed Lost,2025-10-17,Sophia,650163.0,"Budget issue, revisit later."
+L143,Emily,Davis,BlueWave,emily.davis@outlook.com,Healthcare ,Calif.,Closed Won,2025-09-18,,79758.0,Strong champion inside account.
+L144,Priya,Lee,DataSoft,priya.lee@outlook.com,Fin Services,Calif.,Demo Scheduled,2025-09-02,,73338.0,Internal approval pending.
+L145,Aisha,Smith,Innotech,aisha.smith@bizmail.com,saas,CA,Proposal,2025-11-03,Garcia,,Internal approval pending.
+L146,Sara,Smith,APEX SYSTEMS,sara.smith@gmail.com,SaaS,New York,Proposal,2025-10-17,Johnson,455781.0,"Budget issue, revisit later."
+L147,Aisha,Williams,BlueWave,,Healthcare ,California,DM scheduled,,Olivia,778214.0,Requested proposal / follow-up needed.
+L148,Olivia,,Blue Wave Technologies,olivia.@company.com,Healthcare ,MA,Closed Won,2025-10-05,Noah,212636.0,
+L149,John,Williams,ACME Corporation,john.williams@gmail.com,SaaS,Texas,Discovery,2025-10-28,Sara,260722.0,Strong champion inside account.
+L150,Emma,Lee,Blue Wave Technologies,emma.lee@company.com,Healthcare ,Mass,Closed Lost,2025-09-23,Chen,561571.0,Requested proposal / follow-up needed.
+L151,Chen,,Apex Systems,chen.@outlook.com,Healthcare ,Massachusetts,Discovery,2025-08-13,Martinez,745132.0,Internal approval pending.
+L152,Chen,Davis,Globex LLC,chen.davis@bizmail.com,Healthcare,California,Proposal Sent,2025-08-24,Emma,155606.0,Internal approval pending.
+L153,Priya,Patel,ACME Corporation,priya.patel@bizmail.com,Healthcare ,NY,Discovery,2025-08-18,Davis,,Strong champion inside account.
+L154,Emily,Garcia,Acme Corp,emily.garcia@company.com,FinServ,NY,Discover,2025-09-03,Singh,229447.0,Internal approval pending.
+L155,Emily,Brown,BlueWave,emily.brown@bizmail.com,Healthcare,New York,Demo,2025-09-01,Martinez,507296.0,"Budget issue, revisit later."
+L156,Luis,Smith,Acme Corp,luis.smith@outlook.com,Healthcare,TX,Closed Lost,2025-09-11,Aisha,413290.0,Strong champion inside account.
+L157,David,Martinez,APEX SYSTEMS,david.martinez@company.com,saas,Massachusetts,Proposal Sent,2025-09-19,Johnson,207988.0,Strong champion inside account.
+L158,John,Patel,Apex Systems,john.patel@gmail.com,FinServ,NY,Discover,2025-11-02,Sophia,662847.0,
+L159,Ravi,Martinez,DataSoft,,Healthcare ,MA,Discovery,,Lee,32975.0,Strong champion inside account.
+L160,Liam,Lee,DataSoft,liam.lee@gmail.com,FinServ,NY,Demo Scheduled,2025-10-02,Emily,97857.0,"Budget issue, revisit later."
+L161,David,Lopez,ACME Corporation,david.lopez@outlook.com,saas,CA,Discover,2025-09-16,Sara,751986.0,Requested proposal / follow-up needed.
+L162,Emma,Davis,ACME Corporation,emma.davis@company.com,Healthcare ,CA,Demo Scheduled,2025-08-23,Sara,732675.0,"Budget issue, revisit later."
+L163,Ravi,Lee,Globex LLC,,Healthcare ,California,Proposal,2025-09-26,David,423060.0,
+L164,Luis,Lopez,Blue Wave Technologies,luis.lopez@outlook.com,saas,Calif.,Closed Won,2025-09-20,,94710.0,"Budget issue, revisit later."
+L165,Ravi,Williams,Innotech,,Fin Services,Massachusetts,Demo Scheduled,2025-09-16,Williams,413535.0,Asked about pricing / timeline uncertain.
+L166,Chen,Lopez,Globex,,Fin Services,California,Proposal,2025-10-21,,481339.0,"Budget issue, revisit later."
+L167,Sara,Lee,DataSoft,sara.lee@bizmail.com,Healthcare ,MA,Discover,,Mike,355189.0,Internal approval pending.
+L168,,Davis,DataSoft,.davis@gmail.com,FinServ,Texas,Closed Won,2025-09-16,Emily,532077.0,Requested proposal / follow-up needed.
+L169,,Williams,ACME Corporation,.williams@company.com,Healthcare,New York,Demo Scheduled,2025-09-01,Aisha,157071.0,"Budget issue, revisit later."
+L170,,Gupta,Inno-Tech,.gupta@bizmail.com,Fin Services,Mass,Proposal,2025-08-12,Chen,647512.0,
+L171,Luis,Williams,Blue Wave Technologies,luis.williams@company.com,saas,Massachusetts,Closed Lost,2025-09-23,Lopez,397746.0,Asked about pricing / timeline uncertain.
+L172,Priya,Johnson,DataSoft,priya.johnson@outlook.com,SaaS,Massachusetts,Demo Scheduled,2025-09-27,Mike,444016.0,
+L173,Liam,Brown,Apex Systems,liam.brown@outlook.com,SaaS,Massachusetts,Closed Lost,2025-09-13,Davis,585053.0,Asked about pricing / timeline uncertain.
+L174,Luis,Davis,Globex LLC,luis.davis@gmail.com,saas,Mass,DISCOVERY,2025-10-29,Khan,434029.0,"Budget issue, revisit later."
+L175,Aisha,,DataSoft,aisha.@gmail.com,saas,TX,Closed Won,2025-08-22,Noah,727565.0,Strong champion inside account.
+L176,Mike,Smith,Apex Systems,mike.smith@bizmail.com,SaaS,Calif.,DISCOVERY,2025-09-21,Aisha,380219.0,Internal approval pending.
+L177,Noah,Khan,Blue Wave Technologies,noah.khan@gmail.com,SaaS,CA,DM scheduled,2025-10-13,Johnson,197927.0,Strong champion inside account.
+L178,Emily,Singh,BlueWave,emily.singh@outlook.com,FinServ,California,Proposal,2025-08-17,Sophia,422723.0,Asked about pricing / timeline uncertain.
+L179,Priya,Lopez,DataSoft,priya.lopez@gmail.com,FinServ,Mass,DM scheduled,2025-10-20,Davis,685153.0,"Budget issue, revisit later."
+L180,Ravi,Patel,APEX SYSTEMS,ravi.patel@company.com,Healthcare ,California,Demo,2025-08-20,,138586.0,Requested proposal / follow-up needed.
+L181,Mike,Lee,Globex,mike.lee@bizmail.com,Healthcare ,MA,Proposal,2025-08-14,Khan,196649.0,Strong champion inside account.
+L182,Chen,Khan,Inno-Tech,chen.khan@bizmail.com,SaaS,Massachusetts,DISCOVERY,2025-09-15,Patel,444008.0,
+L183,Noah,Singh,Acme Corp,,FinServ,New York,Discovery,2025-08-27,Gupta,534373.0,Strong champion inside account.
+L184,Ravi,,Acme Corp,ravi.@company.com,saas,Massachusetts,Closed Won,2025-09-10,Lopez,274555.0,"Budget issue, revisit later."
+L185,John,Khan,ACME Corporation,john.khan@gmail.com,FinServ,NY,Closed Lost,2025-08-17,Luis,231656.0,Requested proposal / follow-up needed.
+L186,Ravi,Brown,Blue Wave Technologies,ravi.brown@outlook.com,Healthcare,New York,Closed Lost,2025-08-30,Williams,157175.0,Internal approval pending.
+L187,Chen,Lee,Blue Wave Technologies,chen.lee@outlook.com,Healthcare,NY,Proposal,2025-08-22,Khan,488947.0,Asked about pricing / timeline uncertain.
+L188,Sophia,Williams,Inno-Tech,sophia.williams@company.com,Fin Services,Massachusetts,DM scheduled,2025-10-23,Sophia,746160.0,"Budget issue, revisit later."
+L189,Olivia,Garcia,APEX SYSTEMS,olivia.garcia@bizmail.com,Healthcare,Mass,Demo,2025-08-22,Davis,375437.0,
+L190,John,,Globex,,Fin Services,Massachusetts,Discovery,2025-09-10,Singh,696571.0,"Budget issue, revisit later."
+L191,Sophia,Patel,Inno-Tech,sophia.patel@company.com,saas,California,Discovery,2025-09-25,Gupta,702326.0,Asked about pricing / timeline uncertain.
+L192,John,Patel,DataSoft,john.patel@outlook.com,saas,Massachusetts,Discovery,,Priya,457828.0,
+L193,Sara,Patel,Inno-Tech,sara.patel@gmail.com,Healthcare,California,Proposal,2025-10-17,Williams,571278.0,Strong champion inside account.
+L194,,Singh,BlueWave,.singh@company.com,saas,California,Proposal,2025-09-08,Mike,161814.0,Asked about pricing / timeline uncertain.
+L195,Aisha,Williams,Globex LLC,aisha.williams@company.com,Healthcare,Calif.,Demo Scheduled,2025-08-19,Ravi,739016.0,Asked about pricing / timeline uncertain.
+L196,Liam,Garcia,Innotech,liam.garcia@outlook.com,saas,CA,Demo Scheduled,2025-10-20,Khan,568948.0,Asked about pricing / timeline uncertain.
+L197,Sophia,Williams,BlueWave,sophia.williams@bizmail.com,FinServ,Massachusetts,Discover,,,56761.0,Asked about pricing / timeline uncertain.
+L198,Aisha,Martinez,Apex Systems,aisha.martinez@bizmail.com,SaaS,TX,Closed Won,2025-09-29,,,Requested proposal / follow-up needed.
+L199,Mike,Williams,Apex Systems,mike.williams@gmail.com,saas,NY,Discovery,2025-09-09,Brown,339314.0,
+L200,Noah,Smith,Globex,noah.smith@outlook.com,Fin Services,Mass,Closed Won,2025-10-01,Chen,296819.0,
